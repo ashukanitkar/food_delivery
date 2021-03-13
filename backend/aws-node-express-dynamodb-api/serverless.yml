@@ -1,0 +1,22 @@
+# serverless.yml
+
+org: akanitkar
+app: food-delivery-app
+service: food-delivery-backend
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+
+functions:
+  app:
+    handler: index.handler
+    events:
+      - http:
+          path: whoami
+          method: get
+      - http:
+          path: whoami
+          method: get
