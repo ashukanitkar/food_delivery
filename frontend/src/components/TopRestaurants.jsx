@@ -1,7 +1,7 @@
 const TopRestaurants = () => {
     return (
         <body>
-        <section class="section">
+        <section class="section white-section">
 
         <h2 class="title">Top Restaurants</h2>
             <div class = "columns">
@@ -17,7 +17,7 @@ const TopRestaurants = () => {
 
                         <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        Phasellus nec iaculis mauris.
                         </div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@ const TopRestaurants = () => {
 
                         <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        Phasellus nec iaculis mauris. 
                         </div>
                     </div>
                 </div>
@@ -52,7 +52,7 @@ const TopRestaurants = () => {
 
                         <div class="content">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+                        Phasellus nec iaculis mauris.
                         </div>
                     </div>
                 </div>
