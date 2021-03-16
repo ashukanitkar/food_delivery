@@ -40,3 +40,11 @@
 .white-section {
   background-color: #ffffff !important;
 }
+
+.is-lemon {
+  background-color: #fcf5c7 !important;
+}
+
+.lemon-outline {
+  outline: 5px solid #fcf5c7;
+}
