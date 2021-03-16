@@ -48,3 +48,16 @@
 .lemon-outline {
   outline: 5px solid #fcf5c7;
 }
+
+.is-white {
+  background-color: #ffffff !important;
+}
+
+.black-underline {
+  outline: 1px solid #000000;
+}
+
+.full-length {
+  display: flex;
+  height: 100vh;
+}

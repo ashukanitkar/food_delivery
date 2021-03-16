@@ -3,7 +3,7 @@ import lemon from '../resources/lemon.png'
 
 const NavBar = () => {
     return(
-        <nav class="navbar" role="navigation" aria-label="main navigation">
+        <nav class="navbar black-underline" role="navigation" aria-label="main navigation">
             <div class="navbar-brand">
                 <a class="navbar-item">
                 <img src={lemon} width="30" height="28"></img>

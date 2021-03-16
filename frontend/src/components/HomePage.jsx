@@ -3,6 +3,7 @@ import saladPlate from '../resources/Photo-plate.png'
 
 const HomePage = () => {
     return (
+        <div class="is-white">
         <div class="columns">
             <div class="column is-half">
                 <div class="columns">
@@ -18,8 +19,8 @@ const HomePage = () => {
                         </div>
                         <div class="column is-5"/>
                         <div class="column is-11">
-                            <button class="button is-large is-warning is-outlined">Delivery</button>
-                            <button class="ml-6 button is-large is-warning is-outlined">Takeout</button>
+                            <button class="button is-large is-lemon is-outlined">Delivery</button>
+                            <button class="ml-6 button is-large is-lemon is-outlined">Takeout</button>
                         </div>
                     </section>
                     </div>
@@ -31,7 +32,7 @@ const HomePage = () => {
                     <img src={saladPlate}></img>
                 </figure>
             </div>
-
+        </div>
         </div>
     )
 }

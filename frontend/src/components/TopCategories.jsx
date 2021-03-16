@@ -35,7 +35,7 @@ const TopCategories = ({title, imageURL, date}) => {
 const Posts = () => (
     <div>
     <section class="section white-section">
-    <h2 class="title">Top Categories</h2>
+    <h2 class="title">Top Categories</h2><br/>
         <div className="columns is-multiline is-centered">
             <TopCategories title="Sammy" imageURL={sandwich}/>
             <TopCategories title="Burger" imageURL={burger} />
