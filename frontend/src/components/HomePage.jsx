@@ -1,8 +1,11 @@
 import React, { Component } from 'react'
 import saladPlate from '../resources/Photo-plate.png'
+import NavBar from './NavBar'
 
 const HomePage = () => {
     return (
+        <div>
+        <NavBar/>
         <div class="is-white">
         <div class="columns">
             <div class="column is-half">
@@ -32,6 +35,7 @@ const HomePage = () => {
                     <img src={saladPlate}></img>
                 </figure>
             </div>
+        </div>
         </div>
         </div>
     )
