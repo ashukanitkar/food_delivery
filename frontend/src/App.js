@@ -6,18 +6,30 @@ import HomePage from './components/HomePage'
 import FoodSearch from './components/FoodSearch';
 import Checkout from './components/Checkout';
 import SignInScreen from './components/SignIn';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+
 
 class App extends Component {
   
   render() {
     return (
-      <div>
-        <HomePage/>
-        {/* <FoodSearch/> */}
-      {/* <SignInScreen/> */}
-      </div>
+      <main>
+          <Switch>
+              <Route path="/" component={HomePage} exact />
+              <Route path="/search" component={FoodSearch} />
+              <Route path="/checkout" component={Checkout} />
+              <Route path="/signin" component={SignInScreen}/>
+              <Route component={Error} />
+          </Switch>
+      </main>
     )
-  }
+  } 
 }
 
 export default App

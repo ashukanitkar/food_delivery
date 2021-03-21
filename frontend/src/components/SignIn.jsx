@@ -65,9 +65,8 @@ class SignInScreen extends React.Component {
     }
     return (
       <div>
-        <NavBar isSignedIn={true} user={firebase.auth().currentUser.displayName}/>
+        <NavBar isSignedIn={true} user={firebase.auth().currentUser.displayName} email={firebase.auth().currentUser.email}/>
         <FoodSearch/>
-        <a onClick={() => firebase.auth().signOut()}>Sign-out</a>
       </div>
     );
   }

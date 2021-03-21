@@ -42,16 +42,3 @@ const HomePage = () => {
 }
 
 export default HomePage
-
-{/* <div class="columns is-multiline">
-                        <div class="m-6 is-size-1 has-text-left is-uppercase">
-                            Food in the comfort of your home
-                        </div>
-                        <div class="column is-four-fifths">
-                            <input class=" ml-6 input is-warning" type="text" placeholder="Enter Zipcode..."></input>
-                            <div>
-                                <button class="mt-3 ml-6 button is-large is-warning is-outlined">Delivery</button>
-                                <button class="mt-3 ml-4 button is-large is-warning is-outlined">Takeout</button>
-                            </div>
-                        </div>
-                    </div> */}
