@@ -26,8 +26,7 @@ class TopRestaurants extends React.Component {
                                     </div>
             
                                     <div class="content">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                    Phasellus nec iaculis mauris.
+                                    {restaurant.description}
                                     </div>
                                 </div>
                             </div>
