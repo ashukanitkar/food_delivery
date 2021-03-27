@@ -6,6 +6,7 @@ import CravingSearch from './CravingSearch';
 const FoodSearch = () => {
     return (
         <div>
+            {console.log("fdaf")}
         <CravingSearch/>
         <Posts></Posts>
         <TopRestaurants/> 

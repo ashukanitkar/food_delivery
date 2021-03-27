@@ -4,6 +4,9 @@ org: akanitkar
 app: food-delivery-app
 service: food-delivery-backend
 
+plugins:
+  - serverless-offline
+
 provider:
   name: aws
   runtime: nodejs12.x
@@ -14,9 +17,5 @@ functions:
   app:
     handler: index.handler
     events:
-      - http:
-          path: whoami
-          method: get
-      - http:
-          path: whoami
-          method: get
+      - http: ANY /
+      - http: 'ANY {proxy+}'

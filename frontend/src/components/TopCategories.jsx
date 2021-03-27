@@ -1,11 +1,7 @@
-import sandwich from '../resources/sandwich.png';
-import burger from '../resources/burger.png';
-import fish from '../resources/fish.png';
-import spagetti from '../resources/spaguetti.png';
-import pizza from '../resources/pizza.png';
-import salad from '../resources/salad.png';
+import React from 'react';
+const requestImageFile = require.context('../resources', true, /.png$/);
 
-const TopCategories = ({title, imageURL, date}) => {
+const TopCategories = ({title, imageName}) => {
     return (
         <div className="card__wrapper column is-1">
         <div className="card lemon-outline">
@@ -13,7 +9,8 @@ const TopCategories = ({title, imageURL, date}) => {
                 <div className="columns is-centered">
                 <div className="column is-8">
                     <figure className="image is-2by2">
-                        <img src={imageURL} alt={title}/>
+                        { console.log("dafdaff", imageName) }
+                        <img src={requestImageFile(`./${imageName}.png`).default} alt={title}/>
                     </figure>
                 </div>
                 </div>
@@ -32,25 +29,36 @@ const TopCategories = ({title, imageURL, date}) => {
     )
 }
 
-const Posts = () => (
-    <div>
-    <section class="section white-section">
-    <h2 class="title">Top Categories</h2><br/>
-        <div className="columns is-multiline is-centered">
-            <TopCategories title="Sammy" imageURL={sandwich}/>
-            <TopCategories title="Burger" imageURL={burger} />
-            <TopCategories title="Seafood" imageURL={fish} />
-            <TopCategories title="Pasta" imageURL={spagetti} />
-            <TopCategories title="Pizza" imageURL={pizza} />
-            <TopCategories title="Salad" imageURL={salad} />
-            <TopCategories title="Seafood" imageURL={fish} />
-            <TopCategories title="Pasta" imageURL={spagetti} />
-            <TopCategories title="Seafood" imageURL={fish} />
-            <TopCategories title="Pasta" imageURL={spagetti} />
-            <TopCategories title="Pasta" imageURL={spagetti} />
-        </div>
-        </section>
-        </div>
-);
+class Posts extends React.Component {
+    state = {
+        categories: null
+    }
+
+    render() {
+        return (
+            <div>
+            <section class="section white-section">
+            <h2 class="title">Top Categories</h2><br/>
+            <div className="columns is-multiline is-centered">
+            {
+                this.state.categories && this.state.categories.map(category => {
+                    return (
+                        <TopCategories title={category.cat} imageName={category.image}/>
+                    )
+                })
+            }
+            </div>
+            </section>
+            </div>
+        )
+    }
+
+    async componentDidMount() {
+        const response = await fetch('http://localhost:4000/dev/categories')
+        const categories = await response.json()
+        this.setState({categories: categories})
+    }
+}
+
 
 export default Posts;

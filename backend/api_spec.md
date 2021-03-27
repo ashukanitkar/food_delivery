@@ -9,7 +9,7 @@ sample response:
   {
     item: 'Crunchwrap Supreme',
     description: 'A flour tortilla layered with seasoned beef, warm nacho cheese sauce, a crispy tostada shell, crispy lettuce, ripe tomatoes and topped with cool reduced fat sour cream all wrapped in our signature Crunchwrap fold and grilled to go',
-    price: 5.00,
+    price: 5.00
   }
 ]
 ```
