@@ -1,5 +1,19 @@
 ######API Specifications
 
+Get top food categories and respective image name
+```
+GET /categories
+
+sample response:
+[
+  "categories": [
+    {"cat": "Pasta", "image": "pasta"},
+    {"cat": "Burger", "image": "burger"},
+    {"cat": "Seafood", "image": "fish"}
+  ]
+]
+```
+
 Get menu items for restaurant by ID
 ```
 GET /menu-items/{restaurant_id}
