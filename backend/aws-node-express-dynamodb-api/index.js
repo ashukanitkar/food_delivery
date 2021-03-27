@@ -15,4 +15,8 @@ app.get('/categories', function(req, res) {
   res.send(dummy_data.categories)
 })
 
+app.get('/restaurants', function(req, res) {
+  res.send(dummy_data.restaurants)
+})
+
 module.exports.handler = serverless(app);

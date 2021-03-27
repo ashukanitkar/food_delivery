@@ -18,5 +18,19 @@
     {"cat": "Sandwich","image": "sandwich"},
     {"cat": "Pasta", "image": "pasta"},
     {"cat": "Pizza", "image": "pizza"}
+  ],
+
+  "restaurants": [
+    {
+      "name": "Burgers N More", 
+      "description": "dd you viewing ten equally believe put. Separate families my on drawings do oh offended strictly elegance. Perceive jointure be mistress by jennings properly. An admiration at he discovered difficulty continuing. We in building removing possible suitable friendly on."
+    },
+    {
+      "name": "Endless Pastabilities", 
+      "description": "Extremity direction existence as dashwoods do up. Securing marianne led welcomed offended but offering six raptures. Conveying concluded newspaper rapturous oh at. Two indeed suffer saw beyond far former mrs remain. Occasional continuing possession we insensible an sentiments as is. Law but reasonably motionless principles she."},
+    {
+      "name": "Taco Bamba",
+      "description": "Bore can led than how has rank. Discovery any extensive has commanded direction. Short at front which blind as. Ye as procuring unwilling principle by."
+    }
   ]
 }

@@ -9,7 +9,6 @@ const TopCategories = ({title, imageName}) => {
                 <div className="columns is-centered">
                 <div className="column is-8">
                     <figure className="image is-2by2">
-                        { console.log("dafdaff", imageName) }
                         <img src={requestImageFile(`./${imageName}.png`).default} alt={title}/>
                     </figure>
                 </div>
