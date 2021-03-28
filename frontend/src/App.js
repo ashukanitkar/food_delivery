@@ -12,6 +12,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import UserProvider from './providers/UserProvider';
 
 
 
@@ -20,17 +21,18 @@ class App extends Component {
   render() {
     return (
       <main>
+        <UserProvider>
           <Switch>
               <Route path="/" component={HomePage} exact />
-              <Route path="/search" component={FoodSearch} />
+              <Route path="/search" component={FoodSearch}/>
               <Route path="/checkout" component={Checkout} />
               <Route path="/signin" component={SignInScreen}/>
               <Route component={Error} />
           </Switch>
+          </UserProvider>
       </main>
     )
   } 
 }
 
 export default App
-

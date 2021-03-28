@@ -1,4 +1,5 @@
 import React from 'react';
+import { auth } from '../firebase'
 
 
 class TopRestaurants extends React.Component {
@@ -40,9 +41,19 @@ class TopRestaurants extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('http://localhost:4000/dev/restaurants')
-        const restaurants = await response.json()
-        this.setState({restaurants: restaurants})
+    const idToken = await auth.currentUser.getIdToken()
+    const settings = {
+        method: 'GET',
+        headers: {
+            Authorization: idToken,
+        }
+    };
+    const response = await fetch('http://localhost:4000/dev/restaurants', settings)
+    if (response.status === 401) {
+      return console.log('unauthorized')
+    }
+    const restaurants = await response.json()
+    this.setState({restaurants: restaurants.body})
     }
 }
 

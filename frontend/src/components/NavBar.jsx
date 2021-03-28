@@ -2,10 +2,13 @@ import React from 'react'
 import lemon from '../resources/lemon.png'
 import firebase from 'firebase';
 import { Link } from 'react-router-dom'
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
+import {auth} from "../firebase";
 
 const NavBar = (props) => {
-    const isSignedIn = props.isSignedIn
-    if(!isSignedIn) {
+    const authInfo = useContext(UserContext);
+    if(authInfo == null) {
     return(
         <nav class="navbar black-underline" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
