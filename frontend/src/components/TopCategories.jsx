@@ -1,4 +1,5 @@
 import React from 'react';
+import { auth } from '../firebase';
 const requestImageFile = require.context('../resources', true, /.png$/);
 
 const TopCategories = ({title, imageName}) => {
@@ -53,9 +54,19 @@ class Posts extends React.Component {
     }
 
     async componentDidMount() {
-        const response = await fetch('http://localhost:4000/dev/categories')
+        const idToken = await auth.currentUser.getIdToken()
+        const settings = {
+            method: 'GET',
+            headers: {
+                Authorization: idToken,
+            }
+        };
+        const response = await fetch('http://localhost:4000/dev/categories', settings)
+        if (response.status === 401) {
+        return console.log('unauthorized')
+        }
         const categories = await response.json()
-        this.setState({categories: categories})
+        this.setState({categories: categories.body})
     }
 }
 
