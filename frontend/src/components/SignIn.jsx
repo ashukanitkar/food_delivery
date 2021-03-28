@@ -47,7 +47,6 @@ class SignInScreen extends React.Component {
     }
     return (
       <div>
-        <NavBar isSignedIn={true} user={auth.currentUser.displayName} email={auth.currentUser.email}/>
         <Redirect to="/search" />
 
       </div>

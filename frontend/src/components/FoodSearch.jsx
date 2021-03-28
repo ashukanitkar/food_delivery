@@ -4,25 +4,24 @@ import TopRestaurants from './TopRestaurants';
 import Posts from './TopCategories';
 import CravingSearch from './CravingSearch';
 import NavBar from './NavBar';
-import { auth, provider } from "../firebase";
-import { UserContext } from "../providers/UserProvider";
+import { auth } from "../firebase";
 
 
+class FoodSearch extends React.Component {
 
-const FoodSearch = () => {
-    // The component's Local state.
-    const authInfo = useContext(UserContext);
-    console.log("AAAAH", authInfo);
-    
-    
-    return (
+    render() {
+        if (!auth.currentUser) {
+        return(<h2>You are not authorized to see this.</h2>)
+        }
+        return (
         <div>
-        <NavBar isSignedIn={true} user="Ashu" email="fdasf"/>
+        <NavBar isSignedIn={true} user={auth.currentUser.displayName} email={auth.currentUser.email}/>
         <CravingSearch/>
         <Posts></Posts>
         <TopRestaurants/> 
         </div>
-    )
+        )
+    }
 }
 
 export default FoodSearch;
