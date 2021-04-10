@@ -77,7 +77,7 @@ class Posts extends React.Component {
         const testSettings = {
             method: 'POST'
         }
-        const testResponse = await fetch(backendUrl+CartSummary, testSettings)
+        const testResponse = await fetch(backendUrl+'/cart', testSettings)
         console.log(testResponse.status)
     }
 }
