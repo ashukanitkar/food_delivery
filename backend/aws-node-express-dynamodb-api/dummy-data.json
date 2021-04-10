@@ -1,10 +1,4 @@
 {
-  "menu_item" : {
-    "item": "Crunchwrap Supreme",
-    "description": "A flour tortilla layered with seasoned beef, warm nacho cheese sauce, a crispy tostada shell, crispy lettuce, ripe tomatoes and topped with cool reduced fat sour cream all wrapped in our signature Crunchwrap fold and grilled to go",
-    "price": "5.00"
-  },
-
   "categories": [
     {"cat": "Pasta", "image": "pasta"},
     {"cat": "Burger", "image": "burger"},
@@ -22,7 +16,7 @@
 
   "restaurants": [
     {
-      "name": "Burgers N More", 
+      "name": "Taco Bell", 
       "description": "dd you viewing ten equally believe put. Separate families my on drawings do oh offended strictly elegance. Perceive jointure be mistress by jennings properly. An admiration at he discovered difficulty continuing. We in building removing possible suitable friendly on."
     },
     {
@@ -31,6 +25,21 @@
     {
       "name": "Taco Bamba",
       "description": "Bore can led than how has rank. Discovery any extensive has commanded direction. Short at front which blind as. Ye as procuring unwilling principle by. Occasional continuing possession we insensible an sentiments as is. Law but reasonably motionless principles she."
+    }
+  ],
+
+  "menu": [
+    {
+      "item_id": "1",
+      "item_name": "Cheesy Fiesta Potatos"
+    },
+    {
+      "item_id": "2",
+      "item_name": "Crunchwrap Supreme"
+    },
+    {
+      "item_id": "3",
+      "item_name": "Doritos Locos Tacos"
     }
   ]
 }

@@ -13,6 +13,7 @@ import {
   Link
 } from "react-router-dom";
 import UserProvider from './providers/UserProvider';
+import Menu from './components/Menu';
 
 
 
@@ -27,6 +28,7 @@ class App extends Component {
               <Route path="/search" component={FoodSearch}/>
               <Route path="/checkout" component={Checkout} />
               <Route path="/signin" component={SignInScreen}/>
+              <Route path="/menu" component={Menu}/>
               <Route component={Error} />
           </Switch>
           </UserProvider>

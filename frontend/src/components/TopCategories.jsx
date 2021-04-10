@@ -58,7 +58,8 @@ class Posts extends React.Component {
         const idToken = await auth.currentUser.getIdToken()
         let backendUrl = 'https://jeywt0urub.execute-api.us-east-1.amazonaws.com/dev'
         if (window.location.href.includes('localhost')) {
-            backendUrl = 'http://localhost:4000'
+            console.log("detected local env")
+            backendUrl = 'http://localhost:4000/dev'
         }
         let path = '/categories'
         const settings = {
@@ -67,18 +68,14 @@ class Posts extends React.Component {
                 Authorization: idToken,
             }
         };
-        const response = await fetch(backendUrl+path, settings)
+        backendUrl = backendUrl + path
+        console.log("url", backendUrl)
+        const response = await fetch(backendUrl, settings)
         if (response.status === 401) {
         return console.log('unauthorized')
         }
         const categories = await response.json()
         this.setState({categories: categories.body})
-
-        const testSettings = {
-            method: 'POST'
-        }
-        const testResponse = await fetch(backendUrl+'/cart', testSettings)
-        console.log(testResponse.status)
     }
 }
 

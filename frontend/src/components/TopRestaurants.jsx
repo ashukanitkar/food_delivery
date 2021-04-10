@@ -1,5 +1,7 @@
 import React from 'react';
 import { auth } from '../firebase'
+import { Link } from 'react-router-dom'
+
 
 
 class TopRestaurants extends React.Component {
@@ -17,7 +19,7 @@ class TopRestaurants extends React.Component {
                 { this.state.restaurants && this.state.restaurants.map(restaurant => {
                     return(
                         <div class="column is-4">
-                            <div class="card">
+                            <Link to="/menu" class="card">
                                 <div class="card-content">
                                     <div class="media">
                                     <div class="media-content">
@@ -30,7 +32,7 @@ class TopRestaurants extends React.Component {
                                     {restaurant.description}
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         </div>
                     )}
                 )}
@@ -44,7 +46,7 @@ class TopRestaurants extends React.Component {
     const idToken = await auth.currentUser.getIdToken()
     let backendUrl = 'https://jeywt0urub.execute-api.us-east-1.amazonaws.com/dev'
     if (window.location.href.includes('localhost')) {
-        backendUrl = 'http://localhost:4000'
+        backendUrl = 'http://localhost:4000/dev'
     }
     let path = '/restaurants'
     const settings = {

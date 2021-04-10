@@ -1,6 +1,5 @@
 const verifier = require('firebase-token-verifier');
 const AWS = require("aws-sdk");
-const { v4: uuidv4 } = require("uuid");
 const docClient = new AWS.DynamoDB.DocumentClient({ region: "us-east-1" });
 const serverless = require('serverless-http');
 const express = require('express');
@@ -11,6 +10,8 @@ const { request } = require('express');
 const app = express()
 
 app.use(cors())
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
 
 var corsOptions = {
   origin: '*',
@@ -21,8 +22,9 @@ app.get('/whoami', cors(corsOptions), function (req, res) {
   res.send('{ "username": "akanitkar" }')
 });
 
-app.get('/menu-items/:restaurant_id', cors(corsOptions), function(req, res) {
-  res.send(dummy_data.menu_item)
+app.get('/menu', cors(corsOptions), function(req, res) {
+  console.log("here")
+  res.send(dummy_data.menu)
 });
 
 app.get('/categories', cors(corsOptions), async function(req, res) {
@@ -81,32 +83,34 @@ app.get('/restaurants', cors(corsOptions), async function(req, res) {
 })
 
 
-app.post("/cart", async function(req, res) {
+app.post("/cart", cors(corsOptions), async function(req, res) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  // token = (req.headers["authorization"])
-  // if (!token) {
-  //   return res.status(401).send({
-  //     message: 'This is forbidden1!'
-  //  });
-  // }
-  console.log("hi in herre")
-  const requestBody = request.body
-
+  token = (req.headers["authorization"])
+  if (!token) {
+    return res.status(401).send({
+      message: 'This is forbidden1!'
+   });
+  }
+  console.log("passed auth")
+  console.log(req.body)
+  console.log(req.body.item_id)
+  console.log(req.body.item_name)
+  console.log(req.body.quantity)
   var params = {
-    TableName : 'Table',
+    TableName : 'cart',
     Item: {
-       item_id = "4321"
+       item_id: req.body.item_id,
+       item_name: req.body.item_name,
+       quantity: req.body.quantity
     }
   };
   
-  var documentClient = new AWS.DynamoDB.DocumentClient();
-  
-  documentClient.put(params, function(err, data) {
-    if (err) console.log(err);
-    else console.log(data);
-  });
-
+  try {
+    await docClient.put(params).promise()
+  } catch (e) {
+    console.log(e.message)
+  }
    return res.status(200).send()
 })
 module.exports.handler = serverless(app);
