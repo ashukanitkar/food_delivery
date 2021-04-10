@@ -4,6 +4,10 @@ org: akanitkar
 app: food-delivery-app
 service: food-delivery-backend
 
+package:
+  include:
+    - node_modules/**
+
 plugins:
   - serverless-offline
 
@@ -12,6 +16,18 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: us-east-1
+  iamRoleStatements: # permissions for all of your functions can be set here
+        - Effect: Allow
+          Action: # Gives permission to DynamoDB tables in a specific region
+              - dynamodb:DescribeTable
+              - dynamodb:Query
+              - dynamodb:Scan
+              - dynamodb:GetItem
+              - dynamodb:PutItem
+              - dynamodb:UpdateItem
+              - dynamodb:DeleteItem
+          Resource:
+              - 'arn:aws:dynamodb:us-east-1:517509935493:table/cart'
 
 functions:
   app:

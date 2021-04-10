@@ -1,5 +1,6 @@
 import React from 'react';
 import { auth } from '../firebase';
+import CartSummary from './CartSummary';
 const requestImageFile = require.context('../resources', true, /.png$/);
 
 const TopCategories = ({title, imageName}) => {
@@ -72,6 +73,12 @@ class Posts extends React.Component {
         }
         const categories = await response.json()
         this.setState({categories: categories.body})
+
+        const testSettings = {
+            method: 'POST'
+        }
+        const testResponse = await fetch(backendUrl+CartSummary, testSettings)
+        console.log(testResponse.status)
     }
 }
 
