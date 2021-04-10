@@ -92,11 +92,6 @@ app.post("/cart", cors(corsOptions), async function(req, res) {
       message: 'This is forbidden1!'
    });
   }
-  console.log("passed auth")
-  console.log(req.body)
-  console.log(req.body.item_id)
-  console.log(req.body.item_name)
-  console.log(req.body.quantity)
   var params = {
     TableName : 'cart',
     Item: {
@@ -105,7 +100,7 @@ app.post("/cart", cors(corsOptions), async function(req, res) {
        quantity: req.body.quantity
     }
   };
-  
+
   try {
     await docClient.put(params).promise()
   } catch (e) {
@@ -113,4 +108,5 @@ app.post("/cart", cors(corsOptions), async function(req, res) {
   }
    return res.status(200).send()
 })
+
 module.exports.handler = serverless(app);
