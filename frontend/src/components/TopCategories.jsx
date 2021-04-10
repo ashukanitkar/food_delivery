@@ -55,13 +55,18 @@ class Posts extends React.Component {
 
     async componentDidMount() {
         const idToken = await auth.currentUser.getIdToken()
+        let backendUrl = 'https://jeywt0urub.execute-api.us-east-1.amazonaws.com/dev'
+        if (window.location.href.includes('localhost')) {
+            backendUrl = 'http://localhost:4000'
+        }
+        let path = '/categories'
         const settings = {
             method: 'GET',
             headers: {
                 Authorization: idToken,
             }
         };
-        const response = await fetch('http://localhost:4000/dev/categories', settings)
+        const response = await fetch(backendUrl+path, settings)
         if (response.status === 401) {
         return console.log('unauthorized')
         }

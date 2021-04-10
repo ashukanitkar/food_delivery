@@ -42,13 +42,18 @@ class TopRestaurants extends React.Component {
 
     async componentDidMount() {
     const idToken = await auth.currentUser.getIdToken()
+    let backendUrl = 'https://jeywt0urub.execute-api.us-east-1.amazonaws.com/dev'
+    if (window.location.href.includes('localhost')) {
+        backendUrl = 'http://localhost:4000'
+    }
+    let path = '/restaurants'
     const settings = {
         method: 'GET',
         headers: {
             Authorization: idToken,
         }
     };
-    const response = await fetch('http://localhost:4000/dev/restaurants', settings)
+    const response = await fetch(backendUrl+path, settings)
     if (response.status === 401) {
       return console.log('unauthorized')
     }
